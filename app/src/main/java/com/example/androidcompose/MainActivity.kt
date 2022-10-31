@@ -25,9 +25,12 @@ class MainActivity : ComponentActivity() {
 
 data class Message(val author:String, val body:String)
 
+// @Composable é o q ativa o "React" Kotlin
 @Composable
 fun MessageCard(msg:Message) {
+    //Definindo uma Linha com espaçamento interno de 8dp
     Row(modifier = Modifier.padding(all = 8.dp)) {
+        //Desenhando o ícone com a classe Image, definindo sua altura e forma
         Image (
             painter = painterResource(id = R.drawable.icon),
             contentDescription = "O Meu Malvado Favorito são os amigos que fazemos no caminho",
@@ -35,7 +38,9 @@ fun MessageCard(msg:Message) {
                 .size(40.dp)
                 .clip(CircleShape)
         )
+        //Espaço
         Spacer(modifier = Modifier.width(8.dp))
+        //Coluna com 2 Textos e um espaço entre eles
         Column {
             Text(text = msg.author)
             Spacer(modifier = Modifier.width(4.dp))
@@ -44,6 +49,7 @@ fun MessageCard(msg:Message) {
     }
 }
 
+// @preview define como deve um método para ser pré visualizadp
 @Preview
 @Composable
 fun PreviewMessageCard() {
